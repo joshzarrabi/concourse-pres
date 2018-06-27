@@ -1,0 +1,3 @@
+pushd directory
+  ls
+popd

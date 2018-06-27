@@ -1,0 +1,22 @@
+resources:
+- name: concourse
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/concourse/concourse
+
+- name: ci-repo
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/joshzarrabi/concourse-pres
+
+jobs:
+- name: ls-directory
+  plan:
+  - get: concourse
+  - get: ci-repo
+  - task: ls-directory
+    file: ci-repo/tasks/ls-directory.yml
+    input_mapping:
+      directory: concourse
