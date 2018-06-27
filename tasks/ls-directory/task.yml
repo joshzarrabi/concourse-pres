@@ -10,4 +10,4 @@ inputs:
 - name: ci-repo
 
 run:
-  ci-repo/tasks/ls-directory/task.sh
+  path: ci-repo/tasks/ls-directory/task.sh

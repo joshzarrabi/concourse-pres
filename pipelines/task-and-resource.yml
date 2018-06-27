@@ -1,9 +1,9 @@
 resources:
-- name: concourse
+- name: om
   type: git
   source:
     branch: master
-    uri: https://github.com/concourse/concourse
+    uri: https://github.com/pivotal-cf/om
 
 - name: ci-repo
   type: git
@@ -14,9 +14,9 @@ resources:
 jobs:
 - name: ls-directory
   plan:
-  - get: concourse
+  - get: om
   - get: ci-repo
   - task: ls-directory
-    file: ci-repo/tasks/ls-directory.yml
+    file: ci-repo/tasks/ls-directory/task.yml
     input_mapping:
-      directory: concourse
+      directory: om

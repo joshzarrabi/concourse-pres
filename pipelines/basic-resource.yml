@@ -1,11 +1,11 @@
 resources:
-- name: concourse
+- name: om
   type: git
   source:
     branch: master
-    uri: https://github.com/concourse/concourse
+    uri: https://github.com/pivotal-cf/om
 
 jobs:
-- name: get-concourse
+- name: get-om
   plan:
-  - get: concourse
+  - get: om
