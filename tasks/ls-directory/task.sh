@@ -1,5 +1,5 @@
 #!/bin/bash -eu
 
-pushd directory
+pushd directory > /dev/null
   ls
-popd
+popd > /dev/null

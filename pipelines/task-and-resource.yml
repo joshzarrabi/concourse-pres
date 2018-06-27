@@ -5,6 +5,12 @@ resources:
     branch: master
     uri: https://github.com/pivotal-cf/om
 
+- name: atc
+  type: git
+  source:
+    branch: master
+    uri: https://github.com/concourse/atc
+
 - name: ci-repo
   type: git
   source:
@@ -12,11 +18,20 @@ resources:
     uri: https://github.com/joshzarrabi/concourse-pres
 
 jobs:
-- name: ls-directory
+- name: ls-om
   plan:
   - get: om
   - get: ci-repo
-  - task: ls-directory
+  - task: ls-om
     file: ci-repo/tasks/ls-directory/task.yml
     input_mapping:
       directory: om
+
+- name: ls-atc
+  plan:
+  - get: atc
+  - get: ci-repo
+  - task: ls-atc
+    file: ci-repo/tasks/ls-directory/task.yml
+    input_mapping:
+      directory: atc
